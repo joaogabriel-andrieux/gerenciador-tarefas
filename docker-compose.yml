@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    container_name: gerenciador_tarefas_api
+    ports:
+      - "5001:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - PYTHONPATH=/app
+      - DATABASE_URL=sqlite:////app/data/app.db
+      - JWT_SECRET_KEY=sua-chave-secreta-super-segura
